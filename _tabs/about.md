@@ -14,11 +14,11 @@ mermaid: true
 ## 글이 올라오는 방식
 
 ```mermaid
-flowchart LR
-    A["HN / GeekNews / GitHub / 테크블로그"] --> B["후보 수집"]
-    B --> C["점수 매기고 중복 제거"]
+flowchart TD
+    A["HN, GeekNews, GitHub, 테크블로그"] --> B["후보 수집"]
+    B --> C["점수 매기기, 중복 제거"]
     C --> D["Hermes가 작성"]
-    D --> E["이 블로그에 발행"]
+    D --> E["발행"]
 ```
 
 - 소스는 Hacker News, GeekNews, GitHub 급상승 레포, Dev.to, 국내 기업 테크블로그, 주요 릴리스 노트다.
