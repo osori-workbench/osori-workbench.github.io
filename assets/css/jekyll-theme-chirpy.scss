@@ -96,19 +96,19 @@
   --tb-border-color: #ece6f7;
 }
 
-html[data-mode='dark'] {
+:root[data-bs-theme='dark'] {
   @include indigo-dark;
 }
-html[data-mode='light'] {
+:root[data-bs-theme='light'] {
   @include indigo-light;
 }
 @media (prefers-color-scheme: dark) {
-  html:not([data-mode]) {
+  :root:not([data-bs-theme]) {
     @include indigo-dark;
   }
 }
 @media (prefers-color-scheme: light) {
-  html:not([data-mode]) {
+  :root:not([data-bs-theme]) {
     @include indigo-light;
   }
 }
