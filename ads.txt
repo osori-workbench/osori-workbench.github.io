@@ -1,0 +1,2 @@
+# Google AdSense: 승인 후 아래 줄의 pub-ID를 본인 것으로 확인 (AdSense > 사이트 > ads.txt)
+google.com, pub-6746159211291883, DIRECT, f08c47fec0942fa0

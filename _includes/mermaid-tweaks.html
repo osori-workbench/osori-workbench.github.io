@@ -1,0 +1,118 @@
+{% comment %}
+  Chirpy 7 mermaid 커스터마이즈 (OsoriAndOmori 블로그의 둥근 룩앤필을 베이지/브라운 팔레트로 이식) (`mermaid: true` 글에서만 post.html 이 include).
+  1) 베이지·브라운 팔레트 + 시퀀스 다이어그램 간격: 테마가 호출하는 mermaid.initialize 에 덮어씌운다.
+  2) 접힌 <details> 안 다이어그램은 처음 열 때 렌더 (display:none 에서 렌더하면 SVG 가 깨진다).
+  (발표 덱 .slides-src 안 다이어그램은 presentation.html 이 따로 처리.)
+{% endcomment %}
+<style>
+  pre.mermaid { font-family: inherit; }
+
+  /* 둥글고 여유 있는 룩앤필 */
+  .mermaid svg .node rect,
+  .mermaid svg .node polygon { rx: 14px; ry: 14px; stroke-width: 1.3px; }
+  .mermaid svg .node rect,
+  .mermaid svg .node circle,
+  .mermaid svg .node polygon,
+  .mermaid svg .node path { filter: drop-shadow(0 2px 4px rgba(107, 79, 58, 0.18)); }
+  .mermaid svg .cluster rect { rx: 18px; ry: 18px; stroke-width: 1.2px; }
+  .mermaid svg .edgePaths path,
+  .mermaid svg .flowchart-link { stroke-width: 1.6px; stroke-linecap: round; }
+  .mermaid svg .edgeLabel,
+  .mermaid svg .edgeLabel p,
+  .mermaid svg .edgeLabel span { border-radius: 8px; }
+  .mermaid svg .edgeLabel .labelBkg,
+  .mermaid svg .edgeLabel p { padding: 2px 8px; }
+  /* 시퀀스 다이어그램 */
+  .mermaid svg rect.actor { rx: 14px; ry: 14px; stroke-width: 1.3px; filter: drop-shadow(0 2px 4px rgba(107, 79, 58, 0.18)); }
+  .mermaid svg rect.note { rx: 10px; ry: 10px; }
+  .mermaid svg .labelBox { rx: 8px; ry: 8px; }
+  .mermaid svg .messageLine0,
+  .mermaid svg .messageLine1 { stroke-width: 1.6px; }
+</style>
+<script>
+  (function () {
+    /* 테마 스크립트(defer)가 변환하기 전에, <details> 안 블록을 테마가 못 보게 이름을 바꿔둔다. */
+    document.querySelectorAll('details code.language-mermaid').forEach(function (c) {
+      c.classList.replace('language-mermaid', 'lazy-mermaid');
+    });
+
+    /* <pre> 의 monospace 를 물려받으면 mermaid 가 잰 글자폭과 실제 폰트가 달라 노드 글자가 잘린다.
+       본문 폰트를 명시해서 측정·렌더 폰트를 일치시킨다. */
+    function bodyFont() {
+      return getComputedStyle(document.body).fontFamily;
+    }
+
+    function mermaidConfig(dark) {
+      var v = dark ? {
+        background: 'transparent',
+        primaryColor: '#51443a', primaryBorderColor: '#8a7560', primaryTextColor: '#fbf0dc',
+        lineColor: '#b9a88f', secondaryColor: '#51443a', tertiaryColor: '#51443a', textColor: '#fbf0dc',
+        actorBkg: '#51443a', actorBorder: '#8a7560', actorTextColor: '#fbf0dc', actorLineColor: '#8a7560',
+        signalColor: '#d6c7ae', signalTextColor: '#fbf0dc',
+        labelBoxBkgColor: '#51443a', labelBoxBorderColor: '#8a7560', labelTextColor: '#fbf0dc',
+        noteBkgColor: '#5a4a2e', noteBorderColor: '#a08a4e', noteTextColor: '#f3e8c4',
+        activationBkgColor: '#51443a', activationBorderColor: '#8a7560', sequenceNumberColor: '#51443a'
+      } : {
+        background: 'transparent',
+        primaryColor: '#efe0c8', primaryBorderColor: '#c9a37a', primaryTextColor: '#3b2e24',
+        lineColor: '#8a6a4f', secondaryColor: '#efe0c8', tertiaryColor: '#efe0c8', textColor: '#3b2e24',
+        actorBkg: '#efe0c8', actorBorder: '#c9a37a', actorTextColor: '#3b2e24', actorLineColor: '#d9c3a3',
+        signalColor: '#6b4f3a', signalTextColor: '#3b2e24',
+        labelBoxBkgColor: '#efe0c8', labelBoxBorderColor: '#c9a37a', labelTextColor: '#3b2e24',
+        noteBkgColor: '#fbf3d9', noteBorderColor: '#e3d29a', noteTextColor: '#5a4a20',
+        activationBkgColor: '#efe0c8', activationBorderColor: '#c9a37a', sequenceNumberColor: '#efe0c8'
+      };
+      return {
+        theme: 'base',
+        themeVariables: Object.assign({ fontFamily: bodyFont(), fontSize: '14px' }, v),
+        flowchart: {
+          padding: 20, nodeSpacing: 40, rankSpacing: 48,
+          curve: 'basis', htmlLabels: true, useMaxWidth: true
+        },
+        sequence: {
+          mirrorActors: false, wrap: true, width: 170, height: 48, actorMargin: 56,
+          messageMargin: 40, noteMargin: 14, boxMargin: 10, boxTextMargin: 6, useMaxWidth: true
+        }
+      };
+    }
+
+    /* defer 스크립트(mermaid, 테마)가 모두 실행된 뒤 → 렌더링(window load) 전에 실행된다. */
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof mermaid === 'undefined' || typeof mermaid.initialize !== 'function') return;
+
+      var orig = mermaid.initialize.bind(mermaid);
+      var dark = false;
+      function apply(c) {
+        dark = !!c && c.theme === 'dark';
+        return orig(Object.assign({}, c, mermaidConfig(dark), { startOnLoad: false }));
+      }
+      /* 테마 토글 시 테마가 다시 initialize 하므로 항상 우리 설정을 덧씌운다. */
+      mermaid.initialize = apply;
+      apply({ theme: (window.Theme && window.Theme.resolvedTheme === 'dark') ? 'dark' : 'default' });
+
+      /* 웹폰트가 로드된 뒤에 렌더해야 글자폭 측정이 맞는다 (startOnLoad 는 위에서 끔). */
+      var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+      fontsReady.then(function () {
+        mermaid.run({ querySelector: 'pre.mermaid' });
+      });
+
+      document.querySelectorAll('details').forEach(function (d) {
+        d.addEventListener('toggle', function () {
+          if (!d.open) return;
+          var nodes = [];
+          d.querySelectorAll('pre > code.lazy-mermaid').forEach(function (code) {
+            var pre = code.parentElement;
+            var div = document.createElement('pre');
+            div.className = 'mermaid';
+            div.textContent = code.textContent;
+            pre.classList.add('d-none');
+            pre.after(div);
+            code.classList.replace('lazy-mermaid', 'lazy-mermaid-done');
+            nodes.push(div);
+          });
+          if (nodes.length) mermaid.run({ nodes: nodes });
+        });
+      });
+    });
+  })();
+</script>

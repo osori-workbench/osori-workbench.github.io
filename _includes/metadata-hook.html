@@ -1,0 +1,13 @@
+{% comment %}
+  Chirpy head hook. 여기서 사이트 전용 head 요소를 붙인다.
+  - mermaid: true 인 글/페이지에만 둥근 룩앤필 + 베이지 팔레트를 적용
+  - site.adsense.client 가 설정돼 있을 때만 AdSense 스크립트를 싣는다 (글 front matter `ads: false` 로 개별 제외)
+{% endcomment %}
+{% if page.mermaid %}
+  {% include mermaid-tweaks.html %}
+{% endif %}
+
+{% if site.adsense.client and page.ads != false %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client }}"
+          crossorigin="anonymous"></script>
+{% endif %}
