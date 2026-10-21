@@ -2,6 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 4
+mermaid: true
 ---
 
 ## 여기 뭐 하는 곳임
