@@ -3,9 +3,11 @@ title: "DeepInfer 공개: 'DeepSeek 프로덕션 엔진'이라는데, 서빙 스
 date: 2026-10-21 22:37:10 +0900
 categories: [Dev, Daily]
 tags: [llm, inference, deepseek, gpu]
+image:
+  path: /assets/img/posts/2026-10-21-deepinfer-deepseek.png
+  alt: "DeepInfer 공개: 'DeepSeek 프로덕션 엔진'이라는데, 서빙 스택의 절반만 들어 있다"
 ---
 
-## 3줄 요약
 
 - DeepSeek이 자사 대규모 프로덕션 서비스를 돌린다는 추론 프레임워크 DeepInfer를 Apache 2.0으로 공개했다. 지원 모델은 DeepSeek-V4.1-Flash 하나다.
 - 비동기 스케줄링, 배치 불변 추론, 결정적 샘플링, 구조화 출력 등 기능 목록은 화려하지만, KV 캐시 시스템과 로드 밸런싱은 이번 릴리스에서 빠져 있다.
