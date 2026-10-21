@@ -12,103 +12,120 @@
 {%- endif -%}
 ';
 
-/* ---- custom: warm indigo palette ---- */
+/* ---- custom: light brown + beige palette ---- */
 
-/* dark mode = mid-tone warm indigo (not near-black) */
-@mixin indigo-dark {
-  --main-bg: #2d2b55;
-  --mask-bg: #4b4880;
-  --main-border-color: #433f7a;
-  --text-color: #e4e1f7;
-  --text-muted-color: #a9a5d4;
-  --text-muted-highlight-color: #cfcbf0;
-  --heading-color: #fff1dc;
-  --label-color: #c2bee8;
-  --blockquote-border-color: #ffb86b;
-  --blockquote-text-color: #c9c5ee;
-  --link-color: #ffc27d;
-  --link-underline-color: #8a6a49;
-  --button-bg: #373468;
-  --btn-border-color: #4b4880;
-  --btn-backtotop-color: #e4e1f7;
-  --btn-backtotop-border-color: #4b4880;
-  --card-header-bg: #38356b;
-  --checkbox-checked-color: #ffc27d;
-  --img-bg: radial-gradient(circle, #2d2b55 0%, #37346a 100%);
-  --menu-bg: #33305f;
-  --menu-border-color: rgb(255 255 255 / 15%);
-  --menu-highlight-bg: rgb(255 255 255 / 8%);
-  --site-title-color: #ffd9a0;
-  --site-subtitle-color: #b4b0dc;
-  --sidebar-bg: #26244b;
-  --sidebar-border-color: #3a3770;
-  --sidebar-muted-color: #a9a5d4;
-  --sidebar-active-color: #fff1dc;
-  --sidebar-hover-bg: #34316a;
-  --sidebar-btn-bg: #34316a;
-  --sidebar-btn-color: #cfcbf0;
-  --avatar-border-color: #ffb86b;
-  --topbar-bg: rgb(45 43 85 / 75%);
-  --search-border-color: #4b4880;
-  --input-focus-border-color: #ffb86b;
-  --post-list-text-color: #cfcbf0;
-  --btn-paginator-hover-color: #3d3a73;
-  --toc-highlight: #ffb86b;
-  --toc-popup-border-color: #4b4880;
-  --tag-hover: #4b4880;
-  --tb-odd-bg: #373468;
-  --tb-even-bg: #302d5b;
-  --tb-border-color: #433f7a;
-  --card-bg: #36336a;
-  --card-hover-bg: #413e7a;
-  --card-shadow: rgb(20 18 50 / 45%) 0 6px 18px 0, rgb(255 255 255 / 10%) 0 0 0 1px;
+@mixin beige-light {
+  --main-bg: #f7f1e6;
+  --mask-bg: #d9ccb6;
+  --main-border-color: #e6dac6;
+  --text-color: #4d3f33;
+  --text-muted-color: #8a7a68;
+  --text-muted-highlight-color: #6f5f4e;
+  --heading-color: #3b2e24;
+  --label-color: #6f5f4e;
+  --blockquote-border-color: #c9a37a;
+  --blockquote-text-color: #7a6a58;
+  --link-color: #a8683a;
+  --link-underline-color: #e0c9ac;
+  --button-bg: #fbf7ef;
+  --btn-border-color: #e6dac6;
+  --btn-backtotop-color: #6f5f4e;
+  --btn-backtotop-border-color: #e6dac6;
+  --card-header-bg: #efe5d3;
+  --checkbox-checked-color: #a8683a;
+  --img-bg: radial-gradient(circle, #fbf7ef 0%, #efe5d3 100%);
+  --menu-bg: #fbf7ef;
+  --menu-border-color: #e6dac6;
+  --menu-highlight-bg: rgb(168 104 58 / 10%);
+  --site-title-color: #5b4636;
+  --site-subtitle-color: #8a7a68;
+  --sidebar-bg: #ece1cc;
+  --sidebar-border-color: #ddd0b8;
+  --sidebar-muted-color: #8a7a68;
+  --sidebar-active-color: #3b2e24;
+  --sidebar-hover-bg: #e3d6bd;
+  --sidebar-btn-bg: #f7f1e6;
+  --sidebar-btn-color: #8a6a4f;
+  --avatar-border-color: #c9a37a;
+  --topbar-bg: rgb(247 241 230 / 80%);
+  --search-border-color: #e0d3bc;
+  --input-focus-border-color: #c9a37a;
+  --post-list-text-color: #5f5043;
+  --btn-paginator-hover-color: #efe5d3;
+  --toc-highlight: #a8683a;
+  --toc-popup-border-color: #e0d3bc;
+  --tag-hover: #efe0c8;
+  --tb-odd-bg: #f1e8d6;
+  --tb-even-bg: #f7f1e6;
+  --tb-border-color: #e6dac6;
+  --card-bg: #fbf7ef;
+  --card-hover-bg: #f1e8d6;
+  --card-shadow: rgb(120 90 60 / 12%) 0 6px 18px 0, rgb(120 90 60 / 8%) 0 0 0 1px;
 }
 
-@mixin indigo-light {
-  --main-bg: #fffaf4;
-  --main-border-color: #ece6f7;
-  --text-color: #3a3768;
-  --text-muted-color: #7a76a8;
-  --heading-color: #29265e;
-  --blockquote-border-color: #f59e42;
-  --blockquote-text-color: #6b67a0;
-  --link-color: #4f46e5;
-  --link-underline-color: #c7c3f5;
-  --button-bg: #fffaf4;
-  --btn-border-color: #ddd8f3;
-  --card-header-bg: #f1edff;
-  --card-bg: #ffffff;
-  --card-hover-bg: #f1edff;
-  --site-title-color: #fff1dc;
-  --site-subtitle-color: #d9d5ff;
-  --sidebar-bg: #4338ca;
-  --sidebar-border-color: #3730a3;
-  --sidebar-muted-color: #c7c3f5;
-  --sidebar-active-color: #ffffff;
-  --sidebar-hover-bg: #5148d6;
-  --sidebar-btn-bg: #5148d6;
-  --sidebar-btn-color: #e0ddff;
-  --avatar-border-color: #ffb86b;
-  --toc-highlight: #4f46e5;
-  --tag-hover: #e5e1ff;
-  --tb-odd-bg: #f1edff;
-  --tb-even-bg: #fffaf4;
-  --tb-border-color: #ece6f7;
+/* dark = soft mocha brown, still warm (not near-black) */
+@mixin beige-dark {
+  --main-bg: #3a2f27;
+  --mask-bg: #5a4a3d;
+  --main-border-color: #4d3f34;
+  --text-color: #eadfcd;
+  --text-muted-color: #b9a88f;
+  --text-muted-highlight-color: #d6c7ae;
+  --heading-color: #fbf0dc;
+  --label-color: #cdbca3;
+  --blockquote-border-color: #c9a37a;
+  --blockquote-text-color: #cdbca3;
+  --link-color: #e6b886;
+  --link-underline-color: #7d6347;
+  --button-bg: #45392f;
+  --btn-border-color: #5a4a3d;
+  --btn-backtotop-color: #eadfcd;
+  --btn-backtotop-border-color: #5a4a3d;
+  --card-header-bg: #45392f;
+  --checkbox-checked-color: #e6b886;
+  --img-bg: radial-gradient(circle, #3a2f27 0%, #45392f 100%);
+  --menu-bg: #42372d;
+  --menu-border-color: rgb(255 255 255 / 12%);
+  --menu-highlight-bg: rgb(255 255 255 / 7%);
+  --site-title-color: #f3dcb8;
+  --site-subtitle-color: #b9a88f;
+  --sidebar-bg: #30271f;
+  --sidebar-border-color: #4d3f34;
+  --sidebar-muted-color: #b9a88f;
+  --sidebar-active-color: #fbf0dc;
+  --sidebar-hover-bg: #43372d;
+  --sidebar-btn-bg: #43372d;
+  --sidebar-btn-color: #d6c7ae;
+  --avatar-border-color: #c9a37a;
+  --topbar-bg: rgb(58 47 39 / 78%);
+  --search-border-color: #5a4a3d;
+  --input-focus-border-color: #c9a37a;
+  --post-list-text-color: #d6c7ae;
+  --btn-paginator-hover-color: #4d3f34;
+  --toc-highlight: #e6b886;
+  --toc-popup-border-color: #5a4a3d;
+  --tag-hover: #5a4a3d;
+  --tb-odd-bg: #45392f;
+  --tb-even-bg: #3d322a;
+  --tb-border-color: #4d3f34;
+  --card-bg: #45392f;
+  --card-hover-bg: #51443a;
+  --card-shadow: rgb(20 14 10 / 40%) 0 6px 18px 0, rgb(255 255 255 / 8%) 0 0 0 1px;
 }
 
 :root[data-bs-theme='dark'] {
-  @include indigo-dark;
+  @include beige-dark;
 }
 :root[data-bs-theme='light'] {
-  @include indigo-light;
+  @include beige-light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-bs-theme]) {
-    @include indigo-dark;
+    @include beige-dark;
   }
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-bs-theme]) {
-    @include indigo-light;
+    @include beige-light;
   }
 }
