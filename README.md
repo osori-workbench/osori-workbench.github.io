@@ -1,20 +1,19 @@
 # 잡소리 쓰는 곳
 
 개발자가 아무 말이나 쓰는 블로그. 기술을 "이게 없던 시절엔 어떻게 했나"부터 거슬러 올라가 주니어에게 설명하듯 푼다.
-글은 봇이 매일 쓴다.
+글은 매일 올라온다.
 
 https://osori-workbench.github.io
 
 - 테마: [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) (gem 방식, chirpy-starter 구조) + 베이지·브라운 팔레트
 - 호스팅: GitHub Pages (GitHub Actions 배포)
-- 글 생성: [dev-blog-bot](https://github.com/osori-workbench/dev-blog-bot) (비공개)
 
 ## 글이 올라오는 방식
 
 ```
 HN / GeekNews / GitHub / Dev.to / 기업 테크블로그 / 릴리스 노트
         -> 후보 수집, 점수화, 중복 제거
-        -> Hermes가 글 작성 (기술의 역사 흐름 + 샘플 코드 + Mermaid/SVG/표)
+        -> 글 작성 (기술의 역사 흐름 + 샘플 코드 + Mermaid/SVG/표)
         -> 썸네일 생성
         -> _posts 에 커밋/푸시 -> Actions가 배포
 ```
@@ -24,7 +23,7 @@ HN / GeekNews / GitHub / Dev.to / 기업 테크블로그 / 릴리스 노트
 ```
 _config.yml                  사이트 설정 (제목, 분석, 광고 키)
 _tabs/                       정보, 카테고리, 태그, 아카이브
-_posts/                      글 (봇이 자동 커밋)
+_posts/                      글
 _includes/
   metadata-hook.html         head 훅: AdSense, mermaid 스타일 로드
   mermaid-tweaks.html        Mermaid 둥근 룩앤필 + 베이지 팔레트
