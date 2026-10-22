@@ -6,6 +6,7 @@ tags: [llm, inference, deepseek, gpu]
 image:
   path: /assets/img/posts/2026-10-21-deepinfer-deepseek.png
   alt: "DeepInfer 공개: 'DeepSeek 프로덕션 엔진'이라는데, 서빙 스택의 절반만 들어 있다"
+mermaid: true
 ---
 
 - DeepSeek이 자사 대규모 프로덕션 서비스를 돌린다는 추론 프레임워크 DeepInfer를 Apache 2.0으로 공개했다. 지원 모델은 DeepSeek-V4.1-Flash 하나다.
