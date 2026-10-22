@@ -73,7 +73,7 @@ analytics:
 # Page views settings
 # Google AdSense publisher id (ca-pub-...). 비워두면 광고 스크립트를 싣지 않는다. 설정 가이드: docs/SETUP-GUIDE.md
 adsense:
-  client: # ca-pub-XXXXXXXXXXXXXXXX
+  client: ca-pub-6746159211291883
 
 pageviews:
   provider: # now only supports 'goatcounter'
