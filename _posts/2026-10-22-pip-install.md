@@ -167,6 +167,24 @@ sequenceDiagram
 
 피해 범위를 가늠하는 단서는 원문에 있다. PyPI는 UTC 기준 2026-10-21 13:23에 1.107.0을 내렸고, 업로드는 그날 11:39에서 11:40 사이였다. 공격자의 GitHub 계정은 13:40쯤 404를 돌려주기 시작해서, 데몬이 서버 주소를 못 찾아 사실상 아무것도 못 하는 상태가 됐다. 다만 그 전에 데몬이 돌았던 호스트는 2차 코드를 받았을 수 있고, SafeDep도 서버 주소를 복구하지 못했다고 쓴다. 그 2차 코드가 무엇이었는지는 확인하지 못했다. 1.106.2, 1.107.0rc1, 1.107.0rc2는 깨끗하다고 한다.
 
+<svg viewBox="0 0 680 190" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<text x="40" y="24" text-anchor="start" font-size="14" fill="#6b4f3a">악성 1.107.0이 PyPI에 올라가 있던 시간 (UTC, 2026-10-21)</text>
+<line x1="40" y1="100" x2="640" y2="100" stroke="#d9b98c" stroke-width="2"/>
+<rect x="82.9" y="86" width="441.4" height="28" rx="4" fill="#ecd9bf"/>
+<text x="304" y="105" text-anchor="middle" font-size="13" fill="#6b4f3a">설치 가능 구간 약 1시간 43분</text>
+<line x1="78.6" y1="70" x2="78.6" y2="130" stroke="#6b4f3a" stroke-width="3"/>
+<text x="78.6" y="58" text-anchor="start" font-size="13" fill="#6b4f3a" font-weight="bold">11:39~40</text>
+<text x="78.6" y="44" text-anchor="start" font-size="12" fill="#7a6a58">업로드</text>
+<line x1="524.3" y1="70" x2="524.3" y2="130" stroke="#a8683a" stroke-width="3"/>
+<text x="524.3" y="58" text-anchor="middle" font-size="13" fill="#a8683a" font-weight="bold">13:23</text>
+<text x="524.3" y="44" text-anchor="middle" font-size="12" fill="#7a6a58">PyPI에서 내림</text>
+<line x1="597.1" y1="70" x2="597.1" y2="130" stroke="#c9a37a" stroke-width="3"/>
+<text x="597.1" y="150" text-anchor="middle" font-size="13" fill="#c9a37a" font-weight="bold">13:40쯤</text>
+<text x="597.1" y="168" text-anchor="middle" font-size="12" fill="#7a6a58">공격자 계정 404</text>
+</svg>
+
+읽는 법: 원문에 적힌 시각을 그대로 옮긴 타임라인이다. 이 구간에 `pip install litellm`을 한 환경이 위험 대상이다.
+
 ---
 
 *원문: [Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor](https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/) (via hn)*

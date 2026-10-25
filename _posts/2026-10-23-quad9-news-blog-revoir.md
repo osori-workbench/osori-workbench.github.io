@@ -134,6 +134,16 @@ timeline
 
 이번 사건을 요약하면 이렇다. 프랑스 법원이 beIN의 요청으로 Quad9에 특정 도메인 차단을 명했고, 벌금은 하루 580,000유로에서 1,000유로로 줄었다. 그래도 Quad9는 프랑스 서비스를 접기로 했다. 돈 문제가 아니라 원칙 문제라는 게 그쪽 입장이다.
 
+<svg viewBox="0 0 680 145" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<text x="40" y="24" text-anchor="start" font-size="14" fill="#6b4f3a">하루 벌금 (유로)</text>
+<rect x="40" y="44" width="560" height="30" rx="4" fill="#a8683a"/>
+<text x="48" y="64" text-anchor="start" font-size="13" fill="#fff">580,000</text>
+<rect x="40" y="94" width="1.0" height="30" rx="4" fill="#c9a37a"/>
+<text x="52" y="114" text-anchor="start" font-size="13" fill="#6b4f3a">1,000 (원래 금액의 약 0.17%)</text>
+</svg>
+
+읽는 법: 벌금은 580분의 1로 줄었는데도 Quad9는 철수를 택했다. 돈이 이유가 아니라는 걸 막대 길이가 보여준다.
+
 호출 순서로 보면 왜 곤란한지 보인다. 아래 다이어그램은 위에서 아래로 시간 순서다.
 
 ```mermaid
