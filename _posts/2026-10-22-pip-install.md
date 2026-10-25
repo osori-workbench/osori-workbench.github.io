@@ -140,7 +140,7 @@ sequenceDiagram
 
 ## 지금은 어떤가
 
-```svg
+
 <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
 <rect x="20" y="30" width="290" height="160" rx="8" fill="none" stroke="#c9a37a" stroke-width="2"/>
 <text x="165" y="58" text-anchor="middle" font-size="15" fill="#6b4f3a">GitHub 소스</text>
@@ -155,7 +155,7 @@ sequenceDiagram
 <path d="M312 110 L368 110" stroke="#d9b98c" stroke-width="3" fill="none"/>
 <text x="340" y="100" text-anchor="middle" font-size="12" fill="#7a6a58">빌드</text>
 </svg>
-```
+
 
 읽는 법: 개념도(실제 수치 아님). 왼쪽 소스와 오른쪽 결과물이 다르면 소스를 아무리 봐도 소용없다는 걸 보여준다.
 
